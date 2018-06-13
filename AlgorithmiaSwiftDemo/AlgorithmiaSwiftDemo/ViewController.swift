@@ -5,16 +5,20 @@
 //  Created by Erik Ilyin on 11/1/16.
 //  Copyright © 2016 algorithmia. All rights reserved.
 //
+let API_KEY = "simjmvuBpdzWZu3kA1qTzfeUw8W1"
 
 import UIKit
 import Algorithmia
 class ViewController: UIViewController ,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    let client = Algorithmia.client(simpleKey: ProcessInfo.processInfo.environment["ALGORITHMIA_API_KEY"] ?? "%PLACE_YOUR_API_KEY%")
+    
+//    let client = Algorithmia.client(simpleKey: ProcessInfo.processInfo.environment["ALGORITHMIA_API_KEY"] ?? "%PLACE_YOUR_API_KEY%")
+    let client = Algorithmia.client(simpleKey: API_KEY)
     let imagePicker = UIImagePickerController()
     var image:UIImage?
     let sourcePath = "data://.my/test/photo.jpg"
     let resultPath = "data://.my/test/result.jpg"
+    let filters = ["alien_goggles", "aqua", "blue_brush", "blue_granite", "bright_sand", "cinnamon_rolls", "clean_view", "colorful_blocks", "colorful_dream", "crafty_painting", "creativity", "crunch_paper", "dark_rain", "dark_soul", "deep_connections", "dry_skin", "far_away", "gan_vogh", "gred_mash", "green_zuma", "hot_spicy", "neo_instinct", "oily_mcoilface", "plentiful", "post_modern", "purp_paper", "purple_pond", "purple_storm", "rainbow_festival", "really_hot", "sand_paper", "smooth_ride", "space_pizza", "spagetti_accident", "sunday", "yellow_collage", "yellow_paper"]
+    
     @IBOutlet weak var srcImageView: UIImageView!
     @IBOutlet weak var resultImageView: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
@@ -78,6 +82,10 @@ class ViewController: UIViewController ,UIImagePickerControllerDelegate, UINavig
     }
     
     func processImage(file:AlgoDataFile) {
+        // make a random index number
+        let randomIndex = Int(arc4random_uniform(UInt32(filters.count)))
+        let selected_filter = filters[randomIndex]
+
         let param:[String:Any] = [
             "images": [
                 file.toDataURI()
@@ -85,7 +93,7 @@ class ViewController: UIViewController ,UIImagePickerControllerDelegate, UINavig
             "savePaths": [
                 resultPath
             ],
-            "filterName": "space_pizza"
+            "filterName": selected_filter
         ]
         
         // Process with DeepFilter algorithm

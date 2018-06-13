@@ -224,6 +224,7 @@
 				TargetAttributes = {
 					036FDA7B1DC8906800E91C9F = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = AU2D7A96MW;
 						ProvisioningStyle = Automatic;
 					};
 					036FDA8F1DC8906800E91C9F = {
@@ -442,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = AU2D7A96MW;
 				INFOPLIST_FILE = AlgorithmiaSwiftDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.algorithmia.AlgorithmiaSwiftDemo;
@@ -454,6 +456,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = AU2D7A96MW;
 				INFOPLIST_FILE = AlgorithmiaSwiftDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.algorithmia.AlgorithmiaSwiftDemo;
